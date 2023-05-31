@@ -1,0 +1,15 @@
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.csproj.AssemblyReference.cache
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.AssemblyInfoInputs.cache
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.AssemblyInfo.cs
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.csproj.CoreCompileInputs.cache
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\bin\Debug\net7.0\Alternative Language.exe
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\bin\Debug\net7.0\Alternative Language.deps.json
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\bin\Debug\net7.0\Alternative Language.runtimeconfig.json
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\bin\Debug\net7.0\Alternative Language.dll
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\bin\Debug\net7.0\Alternative Language.pdb
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.dll
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\refint\Alternative Language.dll
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.pdb
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\Alternative Language.genruntimeconfig.cache
+C:\Users\Jason\OneDrive\Desktop\Alternative Language\obj\Debug\net7.0\ref\Alternative Language.dll
