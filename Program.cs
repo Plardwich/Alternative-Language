@@ -1,20 +1,13 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 namespace Alternative_Language 
 {
-    class Program{
+    class Program {
         public static void Main(String[] args)
         {
-            Dictionary<string, Cell> cellPhones = new Dictionary<string, Cell>();
-            DataCleaner cleaner = new DataCleaner();
             List<string[]> listOfLines = readInData("cells.csv");
-            foreach (string[] line in listOfLines)
-            {
-                string name = line[0] + " " + line[1];
-                if (!cellPhones.ContainsKey(name)) {
-                    cellPhones.Add(line[0] + " " + line[1], new Cell(cleaner.cleanData(line)));
-                }
-            }
-            Console.WriteLine(cellPhones["Google Pixel 4"].ToString());
+            CollectionOfCells cells = new CollectionOfCells(listOfLines);
+            List<string> oems = cells.getListOfOems();
+            Console.WriteLine(cells.mostCommonLaunchDate());
         }
 
         static List<String[]> readInData(string file) {
@@ -28,6 +21,38 @@ namespace Alternative_Language
                     dataLines.Add(parser.ReadFields());
                 }
                 return dataLines;
+            }
+        }
+
+        static string findLargestWeight(CollectionOfCells cells)
+        {
+            List<string> oems = cells.getListOfOems();
+            float maxWeight = -1;
+            string maxOem = "";
+            foreach (string oem in oems)
+            {
+                CollectionOfCells phones = new CollectionOfCells(cells.getAllPhonesFromOem(oem));
+                float currWeight = phones.AverageWeight();
+                if (currWeight > maxWeight)
+                {
+                    maxWeight = currWeight;
+                    maxOem = oem;
+                }
+            }
+            return maxOem;
+        }
+
+        static void printOneSensor(CollectionOfCells cells)
+        {
+            int count = 0;
+            foreach (string phone in cells.CellPhones.Keys)
+            {
+                Cell phoneObject = cells.CellPhones[phone];
+                if (!phoneObject.FeaturesSensors.Contains(','))
+                {
+                    Console.Write(phone);
+                    count++;
+                }        
             }
         }
     }

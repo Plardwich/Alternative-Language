@@ -23,24 +23,33 @@ namespace Alternative_Language
                 if (i == 2)
                 {
                     launchInteger = convertToYear(data[i]);
-                } 
+                } else if (i == 3) {
+                    stringData[stringIndex] = convertLaunchStatus(data[i]);
+                    stringIndex++;
+                }
                 else if (i == 5) 
                 {
                     floatData[0] = convertToWeight(data[i]);
-                } 
+                }
+                else if (i == 6)
+                {
+                    stringData[stringIndex] = convertSim(data[i]);
+                    stringIndex++;
+                }
                 else if (i == 8)
                 {
                     floatData[1] = convertToSize(data[i]);
-                } else
+                } 
+                else
                 {
-                    stringData[stringIndex] = data[i];
+                    stringData[stringIndex] = data[i] != "-" ? data[i] : "";
                     stringIndex++;
                 }
             }
             return new CleanData(stringData, floatData, launchInteger);
         }
 
-        public int convertToYear(String text)
+        private int convertToYear(String text)
         {
             Regex rx = new Regex(@"\d{4}");
             if (rx.IsMatch(text))
@@ -51,7 +60,7 @@ namespace Alternative_Language
             }
         }
 
-        public float convertToWeight(String text)
+        private float convertToWeight(String text)
         {
             Regex rx = new Regex(@"\d+\s*[g]{1}");
             Regex rx2 = new Regex(@"\d+");
@@ -63,7 +72,7 @@ namespace Alternative_Language
                 return -1;
             }
         }
-        public float convertToSize(String text)
+        private float convertToSize(String text)
         {
             Regex rx = new Regex(@"\d+\.?\d*\s*(inches)");
             Regex rx2 = new Regex(@"\d+\.?\d*");
@@ -75,6 +84,30 @@ namespace Alternative_Language
                 return -1;
             }
         }
-    }
-    
+
+        private string convertLaunchStatus(String text)
+        {
+            Regex rx = new Regex(@"\d{4}");
+            if (rx.IsMatch(text) || text.Contains("Cancelled") || text.Contains("Discontinued"))
+            {
+                return rx.Match(text).ToString();
+            } else {
+                return "";
+            }
+        }
+
+        private string convertSim(String text)
+        {
+            if (!isNoOrYes(text)) {
+                return text;
+            }
+            return "";
+        }
+
+        private Boolean isNoOrYes(String text)
+        {
+            string newText = text.ToLower();
+            return newText.Equals("no") || newText.Equals("yes");
+        }
+    }    
 }
